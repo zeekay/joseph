@@ -14,7 +14,7 @@ $ npm install jospeh
 var Nightmare = require('nightmare');
 var vo = require('vo');
 
-// Adds evaluateAsync method
+// Patch Nightmare
 require('joseph')(Nightmare)
 
 vo(run)(function(err, result) {
@@ -26,19 +26,19 @@ function *run() {
 
   // Return promises
   var res = yield nightmare.evaluate(function() {
-    return Promise.resolve('promises')
+    return Promise.resolve('promise all the things')
   });
   console.log(res);
 
   // Generators for control-flow
   var res = yield nightmare.evaluate(function *() {
-    yield Promise.resolve('generators+promises=<3')
+    yield Promise.resolve('generators + promises = <3')
   });
   console.log(res);
 
   // Callbacks are okay too!
   var res = yield nightmare.evaluate(function (cb) {
-    cb(null, "callback")
+    cb(null, 'callbacks are still hip')
   });
   console.log(res);
 
