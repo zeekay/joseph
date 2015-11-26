@@ -21,7 +21,7 @@
   },
   "scripts": {
     "test": "cake test",
-    "prebublish": "cake build"
+    "prepublish": "cake build"
   },
   "repository": {
     "type": "git",
