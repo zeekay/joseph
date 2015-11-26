@@ -29,7 +29,14 @@ module.exports = String (fn, args) ->
     typeof fn is 'function' and /^function[\s]*\*/.test fn
 
   isPromise = (v) ->
-    typeof v.then is 'function'
+    typeof v?.then is 'function'
+
+  waitForPromise = (promise) ->
+    promise
+      .then (value) ->
+        done null, value
+      .catch (err) ->
+        done err
 
   # Evaluation strategies
   evalAsync = ->
@@ -62,7 +69,7 @@ module.exports = String (fn, args) ->
       else if not res.done
         next res.value
       else
-        done null, last ? prev
+        done null, (last ? prev)
 
     next()
 
@@ -76,14 +83,6 @@ module.exports = String (fn, args) ->
   catch err
     return done err
 
-  # Handle Promises
-  if isPromise response
-    response
-      .then (value) ->
-        done null, value
-      .catch (err) ->
-        done err
-    return
+  return waitForPromise response if isPromise response
 
-  # Synchronous result
   done null, response
