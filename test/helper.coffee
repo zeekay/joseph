@@ -2,7 +2,7 @@ chai = require 'chai'
 chai.should()
 chai.use require 'chai-as-promised'
 
-evaluateAsync = require '../'
+evaluateAsync = require '../lib'
 Nightmare = evaluateAsync require 'nightmare'
 
 before ->
