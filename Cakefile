@@ -24,7 +24,7 @@ task 'test', 'Run tests', (opts, cb) ->
         node_modules/.bin/mocha
         --colors
         --reporter spec
-        --timeout 10000
+        --timeout 100000
         --compilers coffee:coffee-script/register
         --require co-mocha
         --require postmortem/register
