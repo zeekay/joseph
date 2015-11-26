@@ -1,7 +1,9 @@
 # nightmare-evaluate-async
 Adds `evaluateAsync` method to
 [Nightmare](https://github.com/segmentio/nightmare). You can use
-`evaluateAsync` to evaluate asynchronous code and callback with the result.
+`evaluateAsync` to evaluate asynchronous code in Nightmare's browser context.
+
+Supports Node.js style callbacks and Promises plus you can use generators for control-flow.
 
 ## Install
 ```bash
