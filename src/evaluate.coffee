@@ -2,7 +2,7 @@ debug  = require('debug') 'nightmare:actions'
 script = require './script'
 
 module.exports = (fn, args...) ->
-  debug '.evaluateAsync() fn on the page'
+  debug '.evaluate() fn on the page'
 
   done = args.pop()
 

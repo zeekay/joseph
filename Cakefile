@@ -14,13 +14,12 @@ task 'build', 'build project', ->
 task 'test', 'Run tests', (opts, cb) ->
   grep    = opts.grep             ? ''
   test    = opts.test             ? 'test/'
-  verbose = opts.verbose          ? false
+  verbose = opts.verbose          ? ''
 
-  grep = "--grep #{opts.grep}" if grep
+  grep    = "--grep #{opts.grep}" if grep
+  verbose = "DEBUG=nightmare VERBOSE=true" if verbose
 
-  exec "NODE_ENV=test
-        VERBOSE=#{verbose}
-        DEBUG=nightmare
+  exec "NODE_ENV=test #{verbose}
         node_modules/.bin/mocha
         --colors
         --reporter spec
