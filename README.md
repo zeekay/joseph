@@ -24,10 +24,25 @@ vo(run)(function(err, result) {
 
 function *run() {
   var nightmare = Nightmare();
-  var res = yield nightmare.evaluateAsync(function* () {
-    yield Promise.resolve('yay')
+
+  // Return promises
+  var res = yield nightmare.evaluateAsync(function() {
+    return Promise.resolve('promises')
   });
   console.log(res);
+
+  // Generators for control-flow
+  var res = yield nightmare.evaluateAsync(function *() {
+    yield Promise.resolve('generators+promises=<3')
+  });
+  console.log(res);
+
+  // Callbacks are okay too!
+  var res = yield nightmare.evaluateAsync(function (cb) {
+    cb(null, "callback")
+  });
+  console.log(res);
+
   yield nightmare.end();
 }
 ```
