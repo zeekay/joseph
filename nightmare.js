@@ -1,1 +1,1 @@
-require('./lib/nightmare')
+module.exports = require('./lib/nightmare');
