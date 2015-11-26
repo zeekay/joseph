@@ -3,17 +3,22 @@ describe 'jospeh', ->
     res = yield browser.evaluate -> 42
     res.should.eq 42
 
-  it 'should support node.js style callbacks', ->
-    res = yield browser.evaluate (cb) ->
-      cb null, 1
-    res.should.eq 1
+    res = yield browser.evaluate (a, b, c) ->
+      a * b * c
+    , 1, 2, 3
+    res.should.eq 6
 
+  it 'should support node.js style callbacks', ->
     p = browser.evaluate (cb) ->
         setTimeout ->
           cb new Error 'eep'
         , 10
-
     (do ->  yield p).next.should.throw Error
+
+    res = yield browser.evaluate (a, b, c, cb) ->
+      cb null, a * b * c * 2
+    , 1, 2, 3
+    res.should.eq 12
 
   it 'should wait for promise to complete', ->
     res = yield browser.evaluate ->
