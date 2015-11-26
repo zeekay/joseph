@@ -1,0 +1,21 @@
+sudo: false
+language: node_js
+node_js:
+  - 5
+script:
+- node_modules/.bin/shortcake test -v
+cache:
+  directories:
+    - node_modules
+notifications:
+  email:
+    on_success: change
+    on_failure: always
+addons:
+  apt:
+    packages:
+      - xvfb
+install:
+  - export DISPLAY=':99.0'
+  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+  - npm install
