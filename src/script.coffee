@@ -39,12 +39,16 @@ module.exports = String (fn, args) ->
     fn.apply null, args
 
   evalGenerator = ->
-    gen  = fn.apply null, args
+    gen = fn.apply null, args
+
     last = null
     prev = null
 
     next = (value) ->
-      res = gen.next value
+      try
+        res = gen.next value
+      catch err
+        return done err
 
       prev = last
       last = res.value
