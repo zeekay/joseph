@@ -24,12 +24,9 @@ vo(run)(function(err, result) {
 
 function *run() {
   var nightmare = Nightmare();
-  var res = yield nightmare
-    .evaluateAsync(function(cb) {
-      setTimeout(function() {
-        cb("delayed")
-      }, 1000)
-    });
+  var res = yield nightmare.evaluateAsync(function* () {
+    yield Promise.resolve('yay')
+  });
   console.log(res);
   yield nightmare.end();
 }
