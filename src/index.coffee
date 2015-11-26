@@ -7,3 +7,4 @@ module.exports = (Nightmare) ->
     debug 'queueing action "evaluateAsync"'
     @_queue.push [evaluateAsync, args]
     @
+  Nightmare

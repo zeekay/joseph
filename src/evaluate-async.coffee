@@ -10,7 +10,7 @@ module.exports = (fn, args...) ->
     args.push done
     done = ->
 
-  js = "(#{script})(#{String fn}, #{JSON.stringify args}))"
+  js = "(#{script}(#{String fn}, #{JSON.stringify args}))"
 
   @child.once 'javascript', (errstr, result) ->
     if errstr?

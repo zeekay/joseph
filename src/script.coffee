@@ -3,9 +3,11 @@ module.exports = String (fn, args) ->
   ipc    = __nightmare.ipc
   sliced = __nightmare.sliced
 
+  # Swap out console.log
   console.log = ->
     ipc.send 'log', (sliced arguments).map String
 
+  # Return with results
   done = (err, response) ->
     if err
       errmsg =
@@ -16,16 +18,62 @@ module.exports = String (fn, args) ->
     else
       ipc.send 'response', response
 
+    # Put console.log back
     console.log = log
 
-  # Evaluate code
+  # Various helpers
+  isAsync = (fn) ->
+    fn.length == args.length + 1
+
+  isGenerator = (fn) ->
+    typeof fn is 'function' and /^function[\s]*\*/.test fn
+
+  isPromise = (v) ->
+    typeof v.then is 'function'
+
+  # Evaluation strategies
+  evalAsync = ->
+    args.push (err, res) ->
+      return done err if err
+      done null, res
+    fn.apply null, args
+
+  evalGenerator = ->
+    gen  = fn.apply null, args
+    last = null
+    prev = null
+
+    next = (value) ->
+      res = gen.next value
+
+      prev = last
+      last = res.value
+
+      if isPromise promise = res.value
+        promise
+          .then (value) ->
+            next value
+          .catch (err) ->
+            done err
+      else if not res.done
+        next res.value
+      else
+        done null, last ? prev
+
+    next()
+
+  evalSync = -> fn.apply null, args
+
+  return evalAsync()     if isAsync fn
+  return evalGenerator() if isGenerator fn
+
   try
-    response = fn.apply null, args
+    response = evalSync()
   catch err
     return done err
 
   # Handle Promises
-  if typeof response.then is 'function'
+  if isPromise response
     response
       .then (value) ->
         done null, value
@@ -33,4 +81,5 @@ module.exports = String (fn, args) ->
         done err
     return
 
+  # Synchronous result
   done null, response
