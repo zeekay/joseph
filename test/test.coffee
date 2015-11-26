@@ -1,4 +1,4 @@
-describe 'jospeh', ->
+describe 'joseph', ->
   it 'should evaluate synchronous functions', ->
     res = yield browser.evaluate -> 42
     res.should.eq 42

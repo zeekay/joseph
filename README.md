@@ -6,7 +6,7 @@ callbacks, generators and more.
 
 ## Install
 ```bash
-$ npm install jospeh
+$ npm install joseph
 ```
 
 ## Usage
