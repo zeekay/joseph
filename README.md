@@ -1,4 +1,6 @@
-# nightmare-evaluate-async [![Build Status](https://travis-ci.org/zeekay/nightmare-evaluate-async.svg?branch=master)](https://travis-ci.org/zeekay/nightmare-evaluate-async)
+# joseph [![Build Status](https://travis-ci.org/zeekay/joseph.svg?branch=master)](https://travis-ci.org/zeekay/joseph)
+Do promises and asynchronous code give you nightmares? We're here to help!
+
 Adds `evaluateAsync` method to
 [Nightmare](https://github.com/segmentio/nightmare). You can use
 `evaluateAsync` to evaluate asynchronous code in Nightmare's browser context.
@@ -7,7 +9,7 @@ Supports Node.js style callbacks and Promises plus you can use generators for co
 
 ## Install
 ```bash
-$ npm install nightmare-evaluate-async
+$ npm install jospeh
 ```
 
 ## Usage
@@ -16,7 +18,7 @@ var Nightmare = require('nightmare');
 var vo = require('vo');
 
 // Adds evaluateAsync method
-require('nightmare-evaluate-async')(Nightmare)
+require('joseph')(Nightmare)
 
 vo(run)(function(err, result) {
   if (err) throw err;

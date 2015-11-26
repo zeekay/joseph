@@ -1,7 +1,7 @@
 {
-  "name": "nightmare-evaluate-async",
+  "name": "joseph",
   "version": "0.1.4",
-  "description": "Adds evaluateAsync method to Nightmare.",
+  "description": "Asynchronous helpers for Nightmare",
   "main": "lib/",
   "directories": {
     "test": "test"
@@ -25,17 +25,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zeekay/nightmare-evaluate-async.git"
+    "url": "git+https://github.com/zeekay/jospeh.git"
   },
   "keywords": [
-    "nightmare",
     "async",
-    "electron"
+    "electron",
+    "generators",
+    "nightmare",
+    "promises"
   ],
   "author": "Zach Kelling <zk@monoid.io> (http://zeekay.io)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zeekay/nightmare-evaluate-async/issues"
+    "url": "https://github.com/zeekay/jospeh/issues"
   },
-  "homepage": "https://github.com/zeekay/nightmare-evaluate-async#readme"
+  "homepage": "https://github.com/zeekay/jospeh#readme"
 }

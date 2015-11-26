@@ -1,10 +1,10 @@
-debug         = require('debug') 'nightmare'
-evaluateAsync = require './evaluate-async'
-script        = require './script'
+debug    = require('debug') 'nightmare'
+evaluate = require './evaluate'
+script   = require './script'
 
 module.exports = (Nightmare) ->
-  Nightmare::evaluateAsync = (args...) ->
-    debug 'queueing action "evaluateAsync"'
-    @_queue.push [evaluateAsync, args]
+  Nightmare::evaluate = (args...) ->
+    debug 'queueing action "evaluate"'
+    @_queue.push [evaluate, args]
     @
   Nightmare
