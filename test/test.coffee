@@ -44,6 +44,15 @@ describe 'nightmare-evaluate-async', ->
       12
     res.should.eq 12
 
+  it 'should catch errors thrown in a generator', ->
+    try
+      yield browser.evaluateAsync ->
+        f = ->
+          throw new Error 'darn'
+        yield f()
+    catch err
+    String(err).should.eq 'Error: darn'
+
   xit 'should handle asynchronicity correctly', ->
     p = browser.evaluateAsync ->
         Promise.reject new Error 'ohno'
