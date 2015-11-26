@@ -11,18 +11,17 @@ $ npm install joseph
 
 ## Usage
 ```javascript
-var Nightmare = require('nightmare');
-var vo = require('vo');
 
 // Patch Nightmare
-require('joseph')(Nightmare)
-
-vo(run)(function(err, result) {
-  if (err) throw err;
-});
+var Nightmare = require('joseph')(require('nightmare'))
+// ...or
+var Nightmare = require('./lib/nightmare');
 
 function *run() {
   var nightmare = Nightmare();
+
+  // Go somewhere
+  nightmare.goto('about:config')
 
   // Return promises
   var res = yield nightmare.evaluate(function() {
@@ -32,7 +31,12 @@ function *run() {
 
   // Generators for control-flow
   var res = yield nightmare.evaluate(function *() {
-    yield Promise.resolve('generators + promises = <3')
+    var msg = '';
+    msg += yield Promise.resolve('generators');
+    msg += yield Promise.resolve(' + ');
+    msg += yield Promise.resolve('promises');
+    msg += yield Promise.resolve(' = <3 ');
+    yield msg;
   });
   console.log(res);
 
@@ -44,4 +48,9 @@ function *run() {
 
   yield nightmare.end();
 }
+
+// Run with vo
+require('vo')(run)(function (err) {
+  if (err) console.error(err.stack);
+});
 ```
