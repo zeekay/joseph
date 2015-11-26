@@ -1,4 +1,4 @@
-# nightmare-evaluate-async
+# nightmare-evaluate-async [![Build Status](https://travis-ci.org/zeekay/nightmare-evaluate-async.svg?branch=master)](https://travis-ci.org/zeekay/nightmare-evaluate-async)
 Adds `evaluateAsync` method to
 [Nightmare](https://github.com/segmentio/nightmare). You can use
 `evaluateAsync` to evaluate asynchronous code in Nightmare's browser context.
