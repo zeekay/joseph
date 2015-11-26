@@ -1,11 +1,8 @@
 # joseph [![Build Status](https://travis-ci.org/zeekay/joseph.svg?branch=master)](https://travis-ci.org/zeekay/joseph)
-Do promises and asynchronous code give you nightmares? We're here to help!
+### Do promises and asynchronous code give you nightmares? We're here to help!
 
-Adds `evaluateAsync` method to
-[Nightmare](https://github.com/segmentio/nightmare). You can use
-`evaluateAsync` to evaluate asynchronous code in Nightmare's browser context.
-
-Supports Node.js style callbacks and Promises plus you can use generators for control-flow.
+Updates Nightmare's `evaluate` with support for promises, Node.js style
+callbacks, generators and more.
 
 ## Install
 ```bash
@@ -28,19 +25,19 @@ function *run() {
   var nightmare = Nightmare();
 
   // Return promises
-  var res = yield nightmare.evaluateAsync(function() {
+  var res = yield nightmare.evaluate(function() {
     return Promise.resolve('promises')
   });
   console.log(res);
 
   // Generators for control-flow
-  var res = yield nightmare.evaluateAsync(function *() {
+  var res = yield nightmare.evaluate(function *() {
     yield Promise.resolve('generators+promises=<3')
   });
   console.log(res);
 
   // Callbacks are okay too!
-  var res = yield nightmare.evaluateAsync(function (cb) {
+  var res = yield nightmare.evaluate(function (cb) {
     cb(null, "callback")
   });
   console.log(res);
