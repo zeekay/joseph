@@ -15,7 +15,7 @@ $ npm install joseph
 // Patch Nightmare
 var Nightmare = require('joseph')(require('nightmare'))
 // ...or
-var Nightmare = require('./lib/nightmare');
+var Nightmare = require('joseph/nightmare');
 
 function *run() {
   var nightmare = Nightmare();
