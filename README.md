@@ -1,5 +1,5 @@
-# joseph [![Build Status](https://travis-ci.org/zeekay/joseph.svg?branch=master)](https://travis-ci.org/zeekay/joseph)
-#### Do promises and asynchronous code give you nightmares? We're here to help!
+# joseph [![Build Status](https://travis-ci.org/zeekay/joseph.svg?branch=master)](https://travis-ci.org/zeekay/joseph) [![npm version](https://badge.fury.io/js/joseph.svg)](https://badge.fury.io/js/joseph)
+##### Do promises and asynchronous code give you nightmares? We're here to help!
 
 Updates Nightmare's `evaluate` with support for promises, Node.js style
 callbacks, generators and more.
