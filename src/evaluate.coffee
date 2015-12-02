@@ -16,8 +16,8 @@ module.exports = (fn, args...) ->
     if errstr?
       errmsg    = JSON.parse errstr
       err       = new Error errmsg.message
-      err.name  = errmsg.name
-      err.stack = errmsg.stack
+      for k,v of errmsg
+        err[k] = v
       done err
     else
       done null, result
