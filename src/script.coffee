@@ -5,6 +5,7 @@ module.exports = String (fn, args) ->
 
   # Swap out console.log
   console.log = ->
+    log.apply console, arguments
     ipc.send 'log', (sliced arguments).map String
 
   # Return with results
