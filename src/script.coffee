@@ -18,6 +18,10 @@ module.exports = String (fn, args) ->
 
       ipc.send 'error', JSON.stringify errmsg
     else
+      try
+        response = JSON.stringify response
+      catch err
+        response = JSON.stringify error: 'Failed to serialize response'
       ipc.send 'response', response
 
     # Put console.log back
@@ -32,6 +36,9 @@ module.exports = String (fn, args) ->
 
   isPromise = (v) ->
     typeof v?.then is 'function'
+
+  isString = (s) ->
+    typeof s is 'string'
 
   waitForPromise = (promise) ->
     promise

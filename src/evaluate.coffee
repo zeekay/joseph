@@ -20,7 +20,7 @@ module.exports = (fn, args...) ->
         err[k] = v
       done err
     else
-      done null, result
+      done null, JSON.parse result
 
   @child.emit 'javascript', js
   @
