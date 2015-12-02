@@ -11,10 +11,11 @@ module.exports = String (fn, args) ->
   # Return with results
   done = (err, response) ->
     if err
-      errmsg =
-        message: err.message
-        name:    err.name
-        stack:   err.stack
+      errmsg = Object.assign {}, err
+      errmsg.message = err.message
+      errmsg.name    = err.name
+      errmsg.stack   = err.stack
+
       ipc.send 'error', JSON.stringify errmsg
     else
       ipc.send 'response', response
