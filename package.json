@@ -1,6 +1,6 @@
 {
   "name": "joseph",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "Better dream interpretation support for Nightmare.",
   "main": "lib/",
   "directories": {
