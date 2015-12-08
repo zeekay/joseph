@@ -63,5 +63,5 @@ require('vo')(run)(function (err) {
 [npm-image]:        https://img.shields.io/npm/v/joseph.svg
 [downloads-image]:  https://img.shields.io/npm/dm/joseph.svg
 [downloads-url]:    http://badge.fury.io/js/joseph
-[gitter-url]:       https://gitter.im/zeekay/say-hi
+[gitter-url]:       https://gitter.im/zeekay/hi
 [gitter-image]:     https://badges.gitter.im/join-chat.svg
