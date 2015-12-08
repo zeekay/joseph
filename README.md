@@ -1,4 +1,4 @@
-# joseph [![Build Status](https://travis-ci.org/zeekay/joseph.svg?branch=master)](https://travis-ci.org/zeekay/joseph) [![npm version](https://badge.fury.io/js/joseph.svg)](https://badge.fury.io/js/joseph)
+# joseph [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![NPM version][npm-image]][npm-url]  [![Gitter chat][gitter-image]][gitter-url]
 ##### Do promises and asynchronous code give you nightmares? We're here to help!
 
 Updates Nightmare's `evaluate` with support for promises, Node.js style
@@ -54,3 +54,14 @@ require('vo')(run)(function (err) {
   if (err) console.error(err.stack);
 });
 ```
+
+[travis-url]:       https://travis-ci.org/zeekay/joseph
+[travis-image]:     https://img.shields.io/travis/zeekay/joseph.svg
+[coveralls-url]:    https://coveralls.io/github/zeekay/joseph?branch=master
+[coveralls-image]:  https://coveralls.io/repos/zeekay/joseph/badge.svg?branch=master&service=github
+[npm-url]:          https://www.npmjs.com/package/joseph
+[npm-image]:        https://img.shields.io/npm/v/joseph.svg
+[downloads-image]:  https://img.shields.io/npm/dm/joseph.svg
+[downloads-url]:    http://badge.fury.io/js/joseph
+[gitter-url]:       https://gitter.im/zeekay/say-hi
+[gitter-image]:     https://badges.gitter.im/join-chat.svg
