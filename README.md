@@ -4,6 +4,9 @@
 Updates Nightmare's `evaluate` with support for promises, Node.js style
 callbacks, generators and more.
 
+## Note: Deprecated!
+This is no longer necessary as Nightmare now supports async evaluations out of the box :)
+
 ## Install
 ```bash
 $ npm install joseph
