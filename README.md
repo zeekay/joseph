@@ -1,6 +1,8 @@
 # joseph [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![NPM version][npm-image]][npm-url]  [![Gitter chat][gitter-image]][gitter-url]
 ##### Do promises and asynchronous code give you nightmares? We're here to help!
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/zeekay/joseph.svg)](https://greenkeeper.io/)
+
 Updates Nightmare's `evaluate` with support for promises, Node.js style
 callbacks, generators and more.
 
