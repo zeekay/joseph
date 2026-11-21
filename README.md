@@ -1,4 +1,7 @@
 # joseph [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![NPM version][npm-image]][npm-url]  [![Gitter chat][gitter-image]][gitter-url]
+
+[![Open in Hanzo](https://hanzo.app/badges/open-in-hanzo.svg)](https://hanzo.app/dev/open?repo=github.com/zeekay/joseph&ref=master&action=open) [![Edit with Hanzo](https://hanzo.app/badges/edit-with-hanzo.svg)](https://hanzo.app/dev/open?repo=github.com/zeekay/joseph&ref=master&action=edit)
+
 ##### Do promises and asynchronous code give you nightmares? We're here to help!
 
 Updates Nightmare's `evaluate` with support for promises, Node.js style
